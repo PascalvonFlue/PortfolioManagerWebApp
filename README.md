@@ -4,13 +4,13 @@
 Zugang zur Datenbank
 --------------------
 
-*** Netbeans
+### Netbeans
 
 Register «__Services__» wählen. (Wenn nicht geöffnet: Menü: Window → Services)
 
 Databases → Drivers → PostgreSQL → Context Menü: «Connect Using...»
 
-*** Zugangsdaten
+### Zugangsdaten
 
   Driver Name:  PostgreSQL
   Host:			pg14.elad.ch
