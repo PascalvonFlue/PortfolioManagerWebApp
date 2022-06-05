@@ -6,7 +6,7 @@ Zugang zur Datenbank
 
 ### Netbeans
 
-Register «__Services__» wählen. (Wenn nicht geöffnet: Menü: Window → Services)
+Register __«Services»__ wählen. (Wenn nicht geöffnet: Menü: Window → Services)
 
 Databases → Drivers → PostgreSQL → Context Menü: «Connect Using...»
 
@@ -22,7 +22,7 @@ Databases → Drivers → PostgreSQL → Context Menü: «Connect Using...»
 
 __Oder__ einfach JDBC URL die eingeben: jdbc:postgresql://pg14.elad.ch:54324/ltin21ta
 
-Als Schema verwenden wir zuerst «__public__» (Readonly), danach arbeitet jeder in seinem Schema.
+Als Schema verwenden wir zuerst __«public»__ (Readonly), danach arbeitet jeder in seinem Schema.
 
 Links
 -----
