@@ -4,6 +4,8 @@
 DROP TABLE IF EXISTS Benutzer;
 DROP TABLE IF EXISTS Person;
 
+GRANT USAGE ON SCHEMA hm TO PUBLIC;
+
 CREATE TABLE Person (
   personid		serial,
   nachname		varchar(64)	 NOT NULL,
@@ -12,6 +14,7 @@ CREATE TABLE Person (
   CONSTRAINT PK_Person		PRIMARY KEY (personid)
 );
 CREATE INDEX IX_Person_Nachname_Vorname ON Person (nachname,vorname);
+GRANT SELECT ON Person TO Public;
 
 CREATE TABLE Benutzer (
   benutzerid	serial,
