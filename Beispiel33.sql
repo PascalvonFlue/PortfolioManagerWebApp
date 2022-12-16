@@ -1,6 +1,7 @@
 -- Beispiel mit Trigger
 -- --------------------
 
+DROP VIEW IF EXISTS V_UID;
 DROP TABLE IF EXISTS Benutzer;
 DROP TABLE IF EXISTS Person;
 
@@ -45,6 +46,14 @@ BEGIN
     NEW.password := F_GeneratePassword(8);
   END IF;
 
+  IF (NEW.uid IS NULL) THEN
+    SELECT uid INTO NEW.uid FROM V_UID;
+  END IF;
+
+  IF (NEW.email IS NULL AND NEW.username IS NOT NULL) THEN
+    NEW.email := NEW.username || '@example.org';
+  END IF;
+
   RETURN NEW;
 END;
 $code$
@@ -53,10 +62,28 @@ LANGUAGE plpgsql;
 CREATE TRIGGER T_Benutzer_Insert BEFORE INSERT ON Benutzer
   FOR EACH ROW EXECUTE PROCEDURE TF_Benutzer_Insert();
 
+CREATE OR REPLACE VIEW V_UID AS
+SELECT 1000 AS uid
+
+UNION
+
+SELECT uid+1
+  FROM benutzer
+  WHERE uid+1 BETWEEN 1000 AND 65534
+
+EXCEPT
+
+SELECT uid
+  FROM benutzer
+
+ORDER BY uid
+
+LIMIT 1;
+
 INSERT INTO Person (nachname,vorname)
    VALUES ('Müllermann','Hans Peter');
-INSERT INTO Benutzer (uid,email,personid)
-   VALUES (1000,'Ich will keine M@ils',currval('person_personid_seq'));
+INSERT INTO Benutzer (personid)
+   VALUES (currval('person_personid_seq'));
 --INSERT INTO Person (nachname,vorname)
 --  VALUES ('Kaufmann','Urs');
 --INSERT INTO Benutzer (username,password,uid,personid)
