@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/XML/XMLDocument.xml to edit this template
+-->
+
+
+<Klassen version = "1">
+    <Klasse id="L-TIN-22-T-a" bezeichnung = "Informatiker"> </Klasse>
+    <Klasse id="L-TIN-21-T-a" bezeichnung = "Informatiker"> </Klasse>
+    <Klasse id="L-TIN-20-T-a" bezeichnung = "Informatiker"> </Klasse>
+
+    <Student id = "0001" name = "Gander" vorname = "Simon">
+        <Klasse refId = "L-TIN-21-T-a" />
+    </Student>
+
+
+    <Student name = "Huber" vorname = "Simon">
+        <Klasse refId = "L-TIN-22-T-a" />
+        <Klasse refId = "L-TIN-21-T-a" />
+    </Student>
+
+    <Student name = "Nicole" vorname = "Alexandra">
+        <Klasse refId = "L-TIN-20-T-a" />
+    </Student>
+</Klassen>
+
